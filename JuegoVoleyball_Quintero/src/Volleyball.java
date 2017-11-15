@@ -11,11 +11,15 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JCheckBoxMenuItem;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JMenuItem;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -32,10 +36,12 @@ import javax.swing.JFormattedTextField;
 public class Volleyball extends JFrame {
 
 	private JPanel contentPane;
+	private JPanel pnlJuego;
+	private Lugar pnlLugar;
+	private JButton btnJugar;
+	private JButton btnPausar;
+	public Jugador jugadores;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -49,11 +55,8 @@ public class Volleyball extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public Volleyball() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Volleyball.class.getResource("/Imagenes/logo_play.jpg")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Volleyball.class.getResource("/Imagenes/logo2_play.jpg")));
 		setAlwaysOnTop(true);
 		setTitle("VolleyBall_Juego");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,6 +70,11 @@ public class Volleyball extends JFrame {
 		mnRegistro.setBackground(new Color(204, 102, 153));
 		mnRegistro.setForeground(new Color(255, 20, 147));
 		menuBar.add(mnRegistro);
+
+		JMenuItem mntmGuardar = new JMenuItem("Guardar");
+		mntmGuardar.setIcon(new ImageIcon(Volleyball.class.getResource("/Imagenes/iconoVollley.jpg")));
+		mntmGuardar.setSelected(true);
+		mnRegistro.add(mntmGuardar);
 
 		JMenu mnIntrucciones = new JMenu("INSTRUCCIONES");
 		mnIntrucciones.setBackground(new Color(153, 102, 255));
@@ -125,18 +133,16 @@ public class Volleyball extends JFrame {
 		Pelota pnlPresentacion = new Pelota();// panel de tipo pelota
 		panelJuego.add(pnlPresentacion, "Pelota");
 
-		Lugar pnlCancha = new Lugar();// se agrego al panel juego.
-		panelJuego.add(pnlCancha, "Cancha");// se agrega un id a los paneles
+		Lugar pnlLugar = new Lugar();// se agrego al panel juego.
+		panelJuego.add(pnlLugar, "Lugar");// se agrega un id a los paneles
 
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// intrucciones para el boton jugar
 				setBounds(235, 25, 930, 700);
 				CardLayout c = (CardLayout) panelJuego.getLayout();
-				c.show(panelJuego, "Cancha");
+				c.show(panelJuego, "Lugar");
 			}
 		});
-
 	}//
-
 }// FIN DE LA CLASE VOLLEYBALL
