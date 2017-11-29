@@ -84,7 +84,6 @@ public class Lugar extends JPanel implements Runnable {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-
 		Image imagen = new ImageIcon(Pelota.class.getResource("/Imagenes/cancha_voleibolplaya1.png")).getImage();
 		int x = getWidth() / 2 - imagen.getWidth(this) / 2;
 		int y = getHeight() - imagen.getHeight(this);

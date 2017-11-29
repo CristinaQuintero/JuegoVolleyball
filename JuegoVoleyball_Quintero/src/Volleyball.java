@@ -40,7 +40,6 @@ public class Volleyball extends JFrame {
 	private Lugar pnlLugar;
 	private JButton btnJugar;
 	private JButton btnPausar;
-	public Jugador jugadores;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

@@ -33,7 +33,6 @@ public class Entidad extends JPanel {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		// poner codigo para dibujar la imagen
 		if(imagen != null)
 			g.drawImage(imagen, 0, 0, null);
 		
